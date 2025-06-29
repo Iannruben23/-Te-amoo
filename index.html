@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Te Amo Diana</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000000;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .te-amo {
+      position: absolute;
+      font-size: 28px;
+      font-weight: bold;
+      animation: flotar 6s linear forwards;
+      pointer-events: none;
+      color: #ff69b4;
+      text-shadow: 2px 2px 8px rgba(255, 105, 180, 0.6);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .normal {
+      color: #ff69b4;
+    }
+
+    .explosion {
+      color: red;
+      font-size: 34px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.8);
+      z-index: 20;
+    }
+
+    @keyframes flotar {
+      0% { transform: translate(0, 0); opacity: 1; }
+      100% { transform: translate(var(--mov-x), var(--mov-y)); opacity: 0; }
+    }
+
+    .mensaje-central {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 0 10px white, 0 0 20px white; 
+      z-index: 10;
+      max-width: 90%;
+      opacity: 0;
+      animation: aparecer 4s ease-in-out forwards;
+      animation-delay: 1s;
+      white-space: nowrap;
+    }
+
+    @keyframes aparecer {
+      0% { opacity: 0; transform: translate(-50%, -60%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    .mensaje-typing {
+      display: inline-block;
+      border-right: 3px solid #ffffff;
+      white-space: nowrap;
+      animation: typing 4s steps(30) 1s 1 normal both, blinkCaret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blinkCaret {
+      50% { border-color: transparent; }
+    }
+
+    .mensaje-romantico {
+      position: absolute;
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+      opacity: 0;
+      text-shadow: 1px 1px 10px rgba(255,255,255,0.3);
+      animation: fadein 3s ease-in-out forwards;
+      font-style: italic;
+    }
+
+    @keyframes fadein {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .corazon {
+      position: absolute;
+      font-size: 40px;
+      animation: corazonFlotante 6s linear infinite;
+      transform: rotate(0deg);
+    }
+
+    @keyframes corazonFlotante {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100vh); }
+    }
+
+    .carta {
+      position: absolute;
+      width: 98%;
+      height: 98%;
+      top: 1%;
+      left: 1%;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      padding: 50px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      animation: mostrarCarta 2s ease-in-out forwards;
+      z-index: 10;
+      display: none;
+      font-size: 30px;
+      color: #333;
+      overflow-y: auto;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    @keyframes mostrarCarta {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .carta .contenido {
+      white-space: normal;
+      overflow: hidden;
+      width: 100%;
+      animation: escribir 40s steps(50) 1s 1 normal both;
+    }
+
+    @keyframes escribir {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .emoji-carta {
+      position: absolute;
+      font-size: 80px;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 100;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="mensaje-central">
+    <span class="mensaje-typing">Te amo mucho mi Diana Dennis hermosaaaaa la más hermosa del mundo</span>
+  
+    </div>
+
+    <!-- Botón para reproducir música -->
+    <div style="position: absolute; top: 20px; left: 20px; z-index: 200;">
+      <button onclick="document.getElementById('musica').play()" style="padding: 10px 20px; font-size: 16px; border: none; border-radius: 10px; background-color: #ff69b4; color: white; cursor: pointer; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+        ▶ Reproducir Música
+      </button>
+    </div>
+
+    <audio id="musica">
+
+    <source src="Ed Sheeran - Perfect_256k.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <div class="carta" id="carta">
+    <div class="contenido">
+      <p>Mi amor,</p>
+      <p>Desde que llegaste a mi vida, cada día ha sido un regalo, y aunque la distancia nos separe, siento que cada momento contigo se llena de amor y magia.</p>
+      <p>Te amo más de lo que las palabras pueden expresar. Eres mi pensamiento constante, mi razón para sonreír y lo más importante para mí.</p>
+      <p>No hay nada en este mundo que desee más que tenerte a mi lado, y aunque no podamos estar cerca físicamente, mi amor por ti crece cada día más.</p>
+      <p>Me encanta todo de ti: tu risa, tu mirada, tu forma de ser. Eres la persona que más valoro y amo, y no hay nada que quiera más que verte feliz.</p>
+      <p>Te amo, y te espero con todo mi corazón. Eres mi todo.</p>
+      <p>Con todo mi amor,</p>
+      <p>Tu novio Iann 🥺❤️♥️</p>
+      <p><strong>PD: ❤️🥺 TE AMO DEMASIADO MI TODO ❤️🥺</strong></p>
+    </div>
+  </div>
+
+  <div class="emoji-carta" id="emojiCarta">💌</div>
+
+<script>
+  setTimeout(() => {
+    const emojiCarta = document.getElementById('emojiCarta');
+    emojiCarta.style.opacity = 1;
+  }, 30000);
+
+  document.getElementById('emojiCarta').addEventListener('click', () => {
+    const carta = document.getElementById("carta");
+    carta.style.display = "block";
+  });
+
+  function crearTeAmo(x, y, tipo = "normal") {
+    const teAmo = document.createElement('div');
+    teAmo.className = `te-amo ${tipo}`;
+    teAmo.style.left = x + 'px';
+    teAmo.style.top = y + 'px';
+    const movX = (Math.random() - 0.5) * 100 + 'px';
+    const movY = (window.innerHeight + Math.random() * 200) + 'px';
+    teAmo.style.setProperty('--mov-x', movX);
+    teAmo.style.setProperty('--mov-y', movY);
+    const colores = ['#ff69b4', '#ff1493', '#ff8c00', '#ff6347', '#ffd700', '#8a2be2', '#00bfff'];
+    const randomColor = colores[Math.floor(Math.random() * colores.length)];
+    teAmo.style.color = randomColor;
+    teAmo.textContent = tipo === "explosion" ? 'TE AMO' : 'Te amo';
+    document.body.appendChild(teAmo);
+    setTimeout(() => teAmo.remove(), 6000);
+  }
+
+  setInterval(() => {
+    for (let i = 0; i < 100; i++) {
+      const x = Math.random() * window.innerWidth;
+      const y = -50 + Math.random() * window.innerHeight;
+      crearTeAmo(x, y, "normal");
+    }
+  }, 100);
+
+  function explotarTeAmo(x, y) {
+    crearTeAmo(x, y, "explosion");
+  }
+
+  document.addEventListener('click', e => explotarTeAmo(e.clientX, e.clientY));
+  document.addEventListener('touchstart', e => {
+    const touch = e.touches[0];
+    explotarTeAmo(touch.clientX, touch.clientY);
+  });
+
+  window.addEventListener("load", () => {
+    const audio = document.getElementById("musica");
+    const start = () => {
+      audio.play().catch(() => {});
+      document.removeEventListener("click", start);
+      document.removeEventListener("touchstart", start);
+    };
+    document.addEventListener("click", start);
+    document.addEventListener("touchstart", start);
+  });
+
+  const mensajes = [
+    "Desde que llegaste, todo tiene más color.",
+    "Tu sonrisa ilumina hasta mis días más oscuros.",
+    "Eres mi pensamiento favorito cada día.",
+    "Contigo aprendí lo que es el amor verdadero.",
+    "No necesito nada más que estar a tu lado.",
+    "Tú haces que mi corazón lata más fuerte.",
+    "Gracias por existir, mi amor eterno."
+  ];
+
+  let index = 0;
+  function mostrarMensaje() {
+    if (index < mensajes.length) {
+      const mensaje = document.createElement("div");
+      mensaje.textContent = mensajes[index];
+      mensaje.className = "mensaje-romantico";
+      mensaje.style.left = `${Math.random() * window.innerWidth}px`;
+      mensaje.style.top = `${Math.random() * window.innerHeight}px`;
+      document.body.appendChild(mensaje);
+      mensaje.style.animation = 'none';
+      mensaje.offsetHeight;
+      mensaje.style.animation = 'fadein 3s ease-in-out forwards';
+      index++;
+    }
+  }
+
+  setInterval(mostrarMensaje, 4000);
+
+  setInterval(() => {
+    const corazon = document.createElement('div');
+    corazon.className = 'corazon';
+    corazon.textContent = '❤️';
+    corazon.style.left = `${Math.random() * window.innerWidth}px`;
+    corazon.style.top = `${Math.random() * window.innerHeight}px`;
+    const coloresCorazon = ['#ff1493', '#ff69b4', '#ff6347', '#32cd32', '#ff8c00', '#ff00ff'];
+    corazon.style.color = coloresCorazon[Math.floor(Math.random() * coloresCorazon.length)];
+    corazon.style.fontSize = `${Math.random() * 50 + 40}px`;
+    document.body.appendChild(corazon);
+    setTimeout(() => corazon.remove(), 6000);
+  }, 1000);
+</script>
+
+</body>
+</html>
